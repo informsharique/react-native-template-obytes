@@ -5,7 +5,13 @@ import { showMessage } from 'react-native-flash-message';
 import { z } from 'zod';
 
 import { useAddPost } from '@/api';
-import { Button, ControlledInput, showErrorMessage, View } from '@/ui';
+import {
+  Button,
+  ControlledInput,
+  FocusAwareStatusBar,
+  showErrorMessage,
+  View,
+} from '@/ui';
 
 const schema = z.object({
   title: z.string().min(10),
@@ -41,6 +47,7 @@ export const AddPost = () => {
   };
   return (
     <View className="flex-1 p-4 ">
+      <FocusAwareStatusBar />
       <ControlledInput
         name="title"
         label="Title"
